@@ -4,3 +4,7 @@
   border: 2px solid #666666;
   margin: 3px;
 }
+
+.Square-on {
+  background-color: rgb(0, 191, 255);
+}

@@ -3,7 +3,7 @@ import "./Square.css";
 
 class Square extends Component {
   render() {
-    return <div className="Square"></div>;
+    return <div className={`Square ${this.props.on ? "Square-on" : ""}`}></div>;
   }
 }
 

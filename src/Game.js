@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { random } from "./helpers";
 import Square from "./Square";
 import "./Game.css";
 
@@ -20,7 +21,7 @@ class Game extends Component {
         {this.generateGrid().map((row, idx) => (
           <div key={idx} className="Game-row">
             {row.map((loc) => (
-              <Square key={loc} value={loc} />
+              <Square key={loc} loc={loc} on={random([true, false])} />
             ))}
           </div>
         ))}
