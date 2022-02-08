@@ -59,19 +59,21 @@ class Game extends Component {
   render() {
     return (
       <div className="Game">
-        {this.state.grid.map((row, idxRow) => (
-          <div key={idxRow} className="Game-row">
-            {row.map((isOn, idxCol) => (
-              <Square
-                key={`${idxRow}${idxCol}`}
-                row={idxRow}
-                col={idxCol}
-                on={isOn}
-                toggle={this.toggle}
-              />
-            ))}
-          </div>
-        ))}
+        <div className={`${this.state.win ? "Game-hidden" : "Game-board"}`}>
+          {this.state.grid.map((row, idxRow) => (
+            <div key={idxRow} className="Game-row">
+              {row.map((isOn, idxCol) => (
+                <Square
+                  key={`${idxRow}${idxCol}`}
+                  row={idxRow}
+                  col={idxCol}
+                  on={isOn}
+                  toggle={this.toggle}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

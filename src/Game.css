@@ -1,4 +1,4 @@
-.Game {
+.Game-board {
   padding: 15px;
   border: 1px solid #666666;
 }
@@ -6,4 +6,9 @@
 .Game-row {
   display: flex;
   flex-direction: row;
+}
+
+.Game-hidden {
+  display: none;
+  visibility: hidden;
 }
