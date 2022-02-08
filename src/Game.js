@@ -12,6 +12,7 @@ class Game extends Component {
     super(props);
     this.state = {
       grid: new Array(),
+      win: false,
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -45,6 +46,14 @@ class Game extends Component {
     }
 
     this.setState(() => ({ grid: grid }));
+    this.checkWin();
+  }
+
+  checkWin() {
+    const win = this.state.grid.every((val) =>
+      val.every((val) => val === false)
+    );
+    this.setState(() => ({ win: win }));
   }
 
   render() {
