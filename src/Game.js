@@ -8,25 +8,50 @@ class Game extends Component {
     grid: { x: 5, y: 5 },
   };
 
-  generateGrid() {
-    let rows = [...Array(this.props.grid.y).keys()].map((y) => y + 1);
-    let cols = [...Array(this.props.grid.x).keys()].map((x) => x + 1);
+  constructor(props) {
+    super(props);
+    this.state = {
+      grid: new Array(),
+    };
+    this.toggle = this.toggle.bind(this);
+  }
 
-    return rows.map((row) => cols.map((col) => row * 10 + col));
+  generateGrid() {
+    let rows = [...Array(this.props.grid.y).keys()];
+    let cols = [...Array(this.props.grid.x)];
+    const grid = rows.map(() => cols.map(() => random([true, false])));
+
+    this.setState(() => ({ grid: grid }));
+  }
+
+  toggle(row, col) {
+    const { grid } = this.state;
+
+    console.log(grid[row][col]);
   }
 
   render() {
     return (
       <div className="Game">
-        {this.generateGrid().map((row, idx) => (
-          <div key={idx} className="Game-row">
-            {row.map((loc) => (
-              <Square key={loc} loc={loc} on={random([true, false])} />
+        {this.state.grid.map((row, idxRow) => (
+          <div key={idxRow} className="Game-row">
+            {row.map((isOn, idxCol) => (
+              <Square
+                key={`${idxRow}${idxCol}`}
+                row={idxRow}
+                col={idxCol}
+                on={isOn}
+                toggle={this.toggle}
+              />
             ))}
           </div>
         ))}
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.generateGrid();
   }
 }
 
