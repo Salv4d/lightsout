@@ -59,6 +59,7 @@ class Game extends Component {
   render() {
     return (
       <div className="Game">
+        <h1>Lights Out</h1>
         <div className={`${this.state.win ? "Game-hidden" : "Game-board"}`}>
           {this.state.grid.map((row, idxRow) => (
             <div key={idxRow} className="Game-row">

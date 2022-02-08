@@ -1,3 +1,7 @@
+.Game h1 {
+  color: #ffffff;
+}
+
 .Game-board {
   padding: 15px;
   border: 1px solid #666666;
