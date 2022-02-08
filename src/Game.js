@@ -13,6 +13,7 @@ class Game extends Component {
     this.state = {
       grid: new Array(),
       win: false,
+      moves: 0,
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -45,7 +46,7 @@ class Game extends Component {
       } catch (error) {}
     }
 
-    this.setState(() => ({ grid: grid }));
+    this.setState((st) => ({ grid: grid, moves: st.moves + 1 }));
     this.checkWin();
   }
 
@@ -57,11 +58,12 @@ class Game extends Component {
   }
 
   render() {
+    const { grid, win, moves } = this.state;
     return (
       <div className="Game">
         <h1>Lights Out</h1>
-        <div className={`${this.state.win ? "Game-hidden" : "Game-board"}`}>
-          {this.state.grid.map((row, idxRow) => (
+        <div className={`${win ? "Game-hidden" : "Game-board"}`}>
+          {grid.map((row, idxRow) => (
             <div key={idxRow} className="Game-row">
               {row.map((isOn, idxCol) => (
                 <Square
@@ -75,9 +77,12 @@ class Game extends Component {
             </div>
           ))}
         </div>
-        <div className={`${this.state.win ? "Game-win" : "Game-hidden"}`}>
-          <h2>You Won!</h2>
+        <div className={win ? "Game-win" : "Game-hidden"}>
+          <h2>You Win!</h2>
         </div>
+        <h2 className={this.state.moves > 0 ? "" : "Game-hidden"}>
+          Moves: {moves}
+        </h2>
       </div>
     );
   }
