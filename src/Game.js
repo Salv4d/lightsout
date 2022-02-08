@@ -27,7 +27,9 @@ class Game extends Component {
   toggle(row, col) {
     const { grid } = this.state;
 
-    console.log(grid[row][col]);
+    grid[row][col] = !grid[row][col];
+
+    this.setState(() => ({ grid: grid }));
   }
 
   render() {
