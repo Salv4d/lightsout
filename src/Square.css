@@ -3,8 +3,10 @@
   height: 64px;
   border: 2px solid #666666;
   margin: 3px;
+  transition: 300ms;
 }
 
 .Square-on {
   background-color: rgb(0, 191, 255);
+  transition: 300ms;
 }
