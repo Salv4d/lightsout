@@ -1,5 +1,9 @@
-.Game h1 {
+.Game {
   color: #ffffff;
+}
+
+.Game-win h2 {
+  font-size: 4em;
 }
 
 .Game-board {

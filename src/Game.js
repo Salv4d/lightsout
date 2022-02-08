@@ -75,6 +75,9 @@ class Game extends Component {
             </div>
           ))}
         </div>
+        <div className={`${this.state.win ? "Game-win" : "Game-hidden"}`}>
+          <h2>You Won!</h2>
+        </div>
       </div>
     );
   }
