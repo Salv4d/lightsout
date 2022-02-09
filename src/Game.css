@@ -29,6 +29,23 @@
   visibility: hidden;
 }
 
+.Game-restart {
+  border: 1px solid #666666;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 1.5em;
+  font-weight: 800;
+  background-color: #00aeff;
+  color: #ffffff;
+  transition: 300ms;
+}
+
+.Game-restart:hover {
+  background: #3ec2ff;
+  transform: scale(1.1);
+  transition: 300ms;
+}
+
 @keyframes flicker {
   0%,
   18%,

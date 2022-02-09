@@ -104,7 +104,9 @@ class Game extends Component {
         </div>
         <div className={win ? "Game-win" : "Game-hidden"}>
           <h2>You Win!</h2>
-          <button onClick={this.restart}>Restart</button>
+          <button className="Game-restart" onClick={this.restart}>
+            Restart
+          </button>
         </div>
         <h2 className={this.state.moves > 0 ? "" : "Game-hidden"}>
           Moves: {moves}
