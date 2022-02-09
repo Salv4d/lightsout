@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/lightsout/static/css/main.ffa71dfb.css",
-    "main.js": "/lightsout/static/js/main.187fe010.js",
+    "main.js": "/lightsout/static/js/main.b62d8d87.js",
     "static/js/787.3c21b3ca.chunk.js": "/lightsout/static/js/787.3c21b3ca.chunk.js",
     "index.html": "/lightsout/index.html",
     "main.ffa71dfb.css.map": "/lightsout/static/css/main.ffa71dfb.css.map",
-    "main.187fe010.js.map": "/lightsout/static/js/main.187fe010.js.map",
+    "main.b62d8d87.js.map": "/lightsout/static/js/main.b62d8d87.js.map",
     "787.3c21b3ca.chunk.js.map": "/lightsout/static/js/787.3c21b3ca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ffa71dfb.css",
-    "static/js/main.187fe010.js"
+    "static/js/main.b62d8d87.js"
   ]
 }
