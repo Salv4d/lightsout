@@ -11,9 +11,10 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      grid: new Array(),
+      grid: this.generateGrid(),
       win: false,
       moves: 0,
+      minMoves: 0,
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -23,10 +24,22 @@ class Game extends Component {
     let cols = [...Array(this.props.grid.x)];
     const grid = rows.map(() => cols.map(() => false));
 
-    this.setState(() => ({ grid: grid }));
+    return grid;
   }
 
-  toggle(row, col) {
+  shuffle(grid) {
+    const iterations = [...Array(Math.floor(Math.random() * 10) + 5).keys()];
+    iterations.forEach(() => {
+      const row = random(grid);
+      const col = random(grid[row]);
+
+      this.toggle(row, col, true);
+    });
+
+    this.setState(() => ({ minMoves: iterations.length }));
+  }
+
+  toggle(row, col, shuffle = false) {
     const { grid } = this.state;
 
     const rows = [row, row + 1, row - 1];
@@ -46,8 +59,12 @@ class Game extends Component {
       } catch (error) {}
     }
 
-    this.setState((st) => ({ grid: grid, moves: st.moves + 1 }));
-    this.checkWin();
+    if (shuffle) {
+      this.setState((st) => ({ grid: grid }));
+    } else {
+      this.setState((st) => ({ grid: grid, moves: st.moves + 1 }));
+      this.checkWin();
+    }
   }
 
   checkWin() {
@@ -58,7 +75,7 @@ class Game extends Component {
   }
 
   render() {
-    const { grid, win, moves } = this.state;
+    const { grid, win, moves, minMoves } = this.state;
     return (
       <div className="Game">
         <h1>Lights Out</h1>
@@ -81,14 +98,14 @@ class Game extends Component {
           <h2>You Win!</h2>
         </div>
         <h2 className={this.state.moves > 0 ? "" : "Game-hidden"}>
-          Moves: {moves}
+          Min. Moves: {minMoves} | Moves: {moves}
         </h2>
       </div>
     );
   }
 
   componentDidMount() {
-    this.generateGrid();
+    this.shuffle(this.state.grid);
   }
 }
 
