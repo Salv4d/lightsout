@@ -21,7 +21,7 @@ class Game extends Component {
   generateGrid() {
     let rows = [...Array(this.props.grid.y).keys()];
     let cols = [...Array(this.props.grid.x)];
-    const grid = rows.map(() => cols.map(() => random([true, false])));
+    const grid = rows.map(() => cols.map(() => false));
 
     this.setState(() => ({ grid: grid }));
   }
