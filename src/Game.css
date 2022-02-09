@@ -1,5 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
 .Game {
   color: #ffffff;
+}
+
+.Game h1 {
+  font-family: "Satisfy", cursive;
+  font-size: 3em;
+  animation: flicker 5s infinite alternate;
 }
 
 .Game-win h2 {
@@ -19,4 +27,22 @@
 .Game-hidden {
   display: none;
   visibility: hidden;
+}
+
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 2px #fff, 0 0 90px #fff, 0 0 14px #fff, 0 0 40px #00aeff,
+      0 0 40px #00aeff, 0 0 45px #00aeff, 0 0 50px #00aeff, 0 0 70px #00aeff;
+  }
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
 }
