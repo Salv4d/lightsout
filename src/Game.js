@@ -72,7 +72,7 @@ class Game extends Component {
   }
 
   render() {
-    const { grid, win, moves, minMoves } = this.state;
+    const { grid, win, moves } = this.state;
     return (
       <div className="Game">
         <h1>Lights Out</h1>
