@@ -14,7 +14,6 @@ class Game extends Component {
       grid: this.generateGrid(),
       win: false,
       moves: 0,
-      minMoves: 0,
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -35,8 +34,6 @@ class Game extends Component {
 
       this.toggle(row, col, true);
     });
-
-    this.setState(() => ({ minMoves: iterations.length }));
   }
 
   toggle(row, col, shuffle = false) {
@@ -98,7 +95,7 @@ class Game extends Component {
           <h2>You Win!</h2>
         </div>
         <h2 className={this.state.moves > 0 ? "" : "Game-hidden"}>
-          Min. Moves: {minMoves} | Moves: {moves}
+          Moves: {moves}
         </h2>
       </div>
     );
