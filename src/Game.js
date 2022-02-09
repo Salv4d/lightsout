@@ -16,6 +16,16 @@ class Game extends Component {
       moves: 0,
     };
     this.toggle = this.toggle.bind(this);
+    this.restart = this.restart.bind(this);
+  }
+
+  restart() {
+    this.setState(() => ({
+      grid: this.generateGrid(),
+      win: false,
+      moves: 0,
+    }));
+    this.shuffle();
   }
 
   generateGrid() {
@@ -26,7 +36,8 @@ class Game extends Component {
     return grid;
   }
 
-  shuffle(grid) {
+  shuffle() {
+    const grid = [...this.state.grid];
     const iterations = [...Array(Math.floor(Math.random() * 10) + 5).keys()];
     iterations.forEach(() => {
       const row = random(grid);
@@ -93,6 +104,7 @@ class Game extends Component {
         </div>
         <div className={win ? "Game-win" : "Game-hidden"}>
           <h2>You Win!</h2>
+          <button onClick={this.restart}>Restart</button>
         </div>
         <h2 className={this.state.moves > 0 ? "" : "Game-hidden"}>
           Moves: {moves}
@@ -102,7 +114,7 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    this.shuffle(this.state.grid);
+    this.shuffle();
   }
 }
 
