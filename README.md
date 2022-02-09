@@ -2,6 +2,8 @@
 
 ![Lights Out Game Demo](game.gif)
 
+Check it out on GH-Pages: https://salv4d.github.io/lightsout/
+
 In the project directory, you can run:
 
 ### `npm start`
